@@ -26,7 +26,7 @@ return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 <template>
 <div class="max-w-6xl mx-auto p-6">
 <h1 class="text-2xl font-semibold mb-6">Agendamentos (semana)</h1>
-<div class="grid grid-cols-7 gap-4">
+<div class="grid sm:grid-cols-7 gap-4">
 <div v-for="d in 7" :key="d" class="border rounded p-2">
 <div class="font-medium mb-2">{{ ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'][d-1] }}</div>
 <div class="space-y-2">
