@@ -6,7 +6,9 @@ import { eq, and, sql } from 'drizzle-orm';
 const bodySchema = z.object({
   businessId: z.number().default(1),
   serviceId: z.number(),
+  serviceName: z.string(),
   staffId: z.number(),
+  staffName: z.string(),
   customerName: z.string().optional(),
   startISO: z.string(),
 });
@@ -40,7 +42,9 @@ export default defineEventHandler(async (e) => {
   const inserted = await db.insert(bookings).values({
     businessId: body.businessId,
     serviceId: body.serviceId,
+    serviceName: body.serviceName,
     staffId: body.staffId,
+    staffName: body.staffName,
     customerName: body.customerName ?? 'Guest',
     startISO: start.toISOString(),
     endISO: end.toISOString(),

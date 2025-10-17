@@ -8,6 +8,34 @@
       "when": 1760471697643,
       "tag": "0000_hesitant_komodo",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1760672019581,
+      "tag": "0001_brown_reavers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1760672847912,
+      "tag": "0002_smart_richard_fisk",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1760673343927,
+      "tag": "0003_modern_tag",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1760683297853,
+      "tag": "0004_friendly_black_tom",
+      "breakpoints": true
     }
   ]
 }

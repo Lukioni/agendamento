@@ -4,9 +4,11 @@ const staff:any = await $fetch('/api/staff');
 
 
 const selectedService = ref<number | null>(services[0]?.id ?? null);
+const selectedServiceName = ref<number | null>(services[0]?.name ?? null);
+const selectedStaffName = ref<number | null>(staff[0]?.name ?? null);
 const selectedStaff = ref<number | null>(staff[0]?.id ?? null);
 const date = ref<string>(new Date().toISOString().slice(0,10)); // yyyy-mm-dd
-
+const customerName = ref('')
 
 const slots = ref<{ start: string; end: string }[]>([]);
 
@@ -28,12 +30,14 @@ const created = await $fetch('/api/bookings', {
 method: 'POST', body: {
 businessId: 1,
 serviceId: selectedService.value,
+serviceName: selectedServiceName.value,
 staffId: selectedStaff.value,
+staffName: selectedStaffName.value,
 startISO: slot.start,
-customerName: 'Cliente Teste'
+customerName: customerName.value
 }
 }).catch((e) => { alert(e?.data?.message || 'Erro'); });
-if (created) { alert('Agendado!'); await loadSlots(); }
+if (created) {console.log(created), alert('Agendado!'); await loadSlots(); }
 }
 </script>
 
@@ -83,6 +87,10 @@ class="px-3 py-2 rounded border hover:bg-gray-50">
 </button>
 <div v-if="!slots.length" class="text-sm opacity-70">Sem horários disponíveis.</div>
 </div>
+</section>
+
+<section>
+    <input v-model="customerName" placeholder="" type="text" class="px-3 py-2 border b-rder-black rounded-[0.5rem]">
 </section>
 </div>
 </template>
